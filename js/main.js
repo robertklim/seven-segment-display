@@ -1,8 +1,10 @@
 let sevenSegmentDisplay;
+let numbers = [0x7E, 0x30, 0x6D, 0x79, 0x33, 0x5B, 0x5F, 0x70, 0x7F, 0x7B];
+let index = 0;
 
 function setup() {
     createCanvas(600, 600);
-    frameRate(10);
+    frameRate(1);
 
     sevenSegmentDisplay = new SevenSegmentDisplay();
 
@@ -10,7 +12,8 @@ function setup() {
 
 function draw() {
     background(0);
-    sevenSegmentDisplay.show(0x7E);
+    sevenSegmentDisplay.show(numbers[index]);
+    index = (index + 1) % numbers.length;
 }
 
 class SevenSegmentDisplay {
